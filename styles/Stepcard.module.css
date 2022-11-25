@@ -1,0 +1,30 @@
+.stepcard_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 350px;
+    border: 1px solid rgba(17, 17, 17, 0.374);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 5px;
+    text-align: center;
+}
+
+.stepcard_icon {
+    width: 180px;
+    height: 120px;
+}
+
+.stepcard_h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+
+.stepcard_p {
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: sans-serif;
+}

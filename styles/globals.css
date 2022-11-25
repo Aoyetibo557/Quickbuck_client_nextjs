@@ -1,0 +1,61 @@
+/* html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+} */
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+
+.primary_btn {
+  width: 35%;
+  height: 50px;
+  border: 1px solid #000;
+  border: none;
+  border-radius: 5px;
+  padding: 0 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  background-color: #000;
+  font-family: sans-serif;
+  color: #fff;
+  cursor: pointer;
+}
+
+.secondary_btn {
+  font-size: .80rem;
+  font-weight: 400;
+  text-decoration: none;
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  width: 200px;
+  cursor: pointer;
+}
