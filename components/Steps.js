@@ -2,6 +2,15 @@ import React from 'react'
 import StepCard from './StepCard';
 import styles from "../styles/Home.module.css";
 import temp from "../images/test.jpg";
+import { steps } from "../utils/steps";
+
+export const getStaticProps = async () => {
+  return {
+      props: {
+          steps: steps
+      }
+  }
+}
 
 
 

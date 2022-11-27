@@ -1,46 +1,15 @@
 import Head from 'next/head'
 import Banner from '../components/Banner'
-import ProfileCard from '../components/ProfileCard';
 import styles from "../styles/Home.module.css";
-import temp from "../images/test.jpg";
 import Testimonials from '../components/Testimonials';
 import Image from 'next/image';
 import Image1 from "../images/relax1.jpg";
 import Image2 from "../images/relax2.jpg";
-
-import StepIcon1 from "../images/stepicon1.svg"
-import StepIcon2 from "../images/stepicon2.svg"
-import StepIcon3 from "../images/stepicon3.svg"
-import StepIcon4 from "../images/stepicon4.svg"
 import Steps from '../components/Steps';
-
-const profiles = [
-  {name: "John Doe", rating: 100, description: "I am a professional web developer with 5 years of experience. I have worked on many projects and have a lot of experience in web development. I am a professional web developer with 5 years of experience. I have worked on many projects and have a lot of experience in web development.", tasknumber: 10, skills: ["HTML", "CSS", "JavaScript", "React", "Next.js"]},
-  {name: "Jane Doe", rating: 60, description: "I am a professional web developer with 5 years of experience. I have worked on many projects and have a lot of experience in web development. I am a professional web developer with 5 years of experience. I have worked on many projects and have a lot of experience in web development.", tasknumber: 10, skills: ["HTML", "CSS", "JavaScript", "React", "Next.js"]},
-  {name: "John Doe", rating: 70, description: "I am a professional web developer with 5 years of experience. I have worked on many projects and have a lot of experience in web development. I am a professional web developer with 5 years of experience. I have worked on many projects and have a lot of experience in web development.", tasknumber: 10, skills: ["HTML", "CSS", "JavaScript", "React", "Next.js"]},
-]
-
-const testimonials = [
-  {name: "Casey W", testimony: "Loved this platform. I was able to get my project done in no time. I will definitely use this platform again.", rating: 5, servicetype: "Web Development"},
-  {name: "White T", testimony: "Loved this platform. I was able to get my project done in no time. I will definitely use this platform again.", rating: 4.5, servicetype: "Web Development"},
-  {name: "Ezra J", testimony: "Loved this platform. I was able to get my project done in no time. I will definitely use this platform again.", rating: 4, servicetype: "Web Development"},
-    {name: "Ezra J", testimony: "Loved this platform. I was able to get my project done in no time. I will definitely use this platform again.", rating: 4, servicetype: "Web Development"},
-  {name: "Ezra J", testimony: "Loved this platform. I was able to get my project done in no time. I will definitely use this platform again.", rating: 4, servicetype: "Web Development"},
-  {name: "Ezra J", testimony: "Loved this platform. I was able to get my project done in no time. I will definitely use this platform again.", rating: 4, servicetype: "Web Development"},
-  {name: "Ezra J", testimony: "Loved this platform. I was able to get my project done in no time. I will definitely use this platform again.", rating: 4, servicetype: "Web Development"},
-  {name: "Ezra J", testimony: "Loved this platform. I was able to get my project done in no time. I will definitely use this platform again.", rating: 4, servicetype: "Web Development"},
-  {name: "Ezra J", testimony: "Loved this platform. I was able to get my project done in no time. I will definitely use this platform again.", rating: 4, servicetype: "Web Development"},
-
-]
+import { reviews } from "../utils/reviews";
+import { steps } from "../utils/steps";
 
 
-// create an array object calles steps, with the keys: icon, title, description
-const steps = [
-  {icon: [StepIcon1], title: "Create an Account", description: "Create an account with us and get started with your project."},
-  {icon: [StepIcon2], title: "Select a Freelancer", description: "Choose your freelancer by reviews, skills and price."},
-  {icon: [StepIcon4], title: "Post your Task", description: "Give as much details as possible to get the best results."},
-  {icon: [StepIcon3], title: "Get it Done", description: "Chat, pay, tip and review your freelancer through one platform."},
-]
 
 export default function Home() {
   return (
@@ -90,29 +59,16 @@ export default function Home() {
           <div className={styles.testimonials}>
             <div>
               <Testimonials 
-                testimonials={testimonials}
+                testimonials={reviews}
               />
             </div>
           </div>
-{/* 
-          <div className={styles.profile_container}>
-            <div className={styles.profile_div}>
-              {profiles.map((profile, index) => (
-                <ProfileCard 
-                  key={index}
-                  name={profile.name}
-                  rating={profile.rating}
-                  image={temp}
-                  description={profile.description}
-                  tasknumber={profile.tasknumber}
-                  skills={profile.skills}
-                />
-              ))} 
-            </div>
-          </div> */}
-       
+
         </section>
+
       </main>
+
+      
 
     </div>
   )

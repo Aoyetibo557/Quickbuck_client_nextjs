@@ -3,6 +3,16 @@ import TestimonialCard from './TestimonialCard'
 import temp from "../images/test.jpg";
 import styles from "../styles/Testimonialcard.module.css"
 import { Pagination } from 'antd';
+import { reviews } from "../utils/reviews";
+
+export const getStaticProps = async () => {
+    return {
+        props: {
+            testimonials: reviews
+        }
+    }
+}
+
 
 export default function Testimonials({testimonials}) {
     const [currentPage, setCurrentPage] = React.useState(1);
@@ -43,25 +53,3 @@ export default function Testimonials({testimonials}) {
     )
 }
 
-//   return (
-//     <div>
-//         {testimonials?.map((testimonial, index) => (
-//             <TestimonialCard 
-//                 key={index}
-//                 name={testimonial.name}
-//                 image={temp}
-//                 rating={testimonial.rating}
-//                 testimony={testimonial.testimony}
-//                 servicetype={testimonial.servicetype}
-//             />
-//         ))}
-//         <Pagination 
-//             defaultCurrent={1}
-//             total={testimonials.length}
-//             pageSize={per_page}
-//             onChange={handleChange}
-
-//         />
-//     </div>
-//   )
-// }
