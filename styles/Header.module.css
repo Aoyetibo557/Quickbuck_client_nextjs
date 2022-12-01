@@ -34,6 +34,7 @@
     text-decoration: none;
     color: #000;
     font-family: sans-serif;
+    opacity: 0.6;
 }
 
 .nav_btn{
@@ -47,4 +48,20 @@
     padding: 0.5rem 1rem;
     width: 200px;
     cursor: pointer;
+}
+
+.nav_li_btn {
+    font-size: .90rem;
+    font-weight: 400;
+    text-decoration: none;
+    color: #000;
+    font-family: sans-serif;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.nav_li:hover,.nav_li_btn:hover {
+    opacity: 1;
 }

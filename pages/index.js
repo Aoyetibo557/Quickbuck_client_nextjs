@@ -8,7 +8,7 @@ import Image2 from "../images/relax2.jpg";
 import Steps from '../components/Steps';
 import { reviews } from "../utils/reviews";
 import { steps } from "../utils/steps";
-
+import MainLayout from "../layouts/MainLayout"
 
 
 export default function Home() {
@@ -71,5 +71,13 @@ export default function Home() {
       
 
     </div>
+  )
+}
+
+Home.getLayout = function getLayout(page) {
+  return (
+    <MainLayout>
+      {page}
+    </MainLayout>
   )
 }
