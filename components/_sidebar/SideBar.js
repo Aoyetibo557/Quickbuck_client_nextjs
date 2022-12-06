@@ -1,6 +1,7 @@
 import React from 'react'
 import { Layout, Menu, Popconfirm, Button } from 'antd';
 import { AiOutlineMenuFold, AiOutlineMenuUnfold } from 'react-icons/ai';
+import { BsChatDots } from 'react-icons/bs';
 import { HiOutlineSquares2X2 } from 'react-icons/hi2';
 import { signOut } from 'next-auth/react';
 import Link from 'next/link'
@@ -53,22 +54,17 @@ function SideBar({ trigger, collapsed, setCollapsed }) {
               icon: <VideoCameraOutlined />,
               label:<Link href="/dashboard/tasks">Tasks</Link>,
               Link: '/dashboard/tasks',
+            },{
+              key: '3',
+              icon: <BsChatDots />,
+              label: <Link href="/dashboard/chat">Chat</Link>,
             },
             {
-              key: '3',
+              key: '4',
               icon: <DollarOutlined />,
               label: <Link href="/dashboard/payments">Payments</Link>,
             },{
-              key: '4',
-              icon: <SettingOutlined />,
-              label: <Link href="/dashboard/settings">Settings</Link>,
-            },{
-              key: '5',
-              icon:  <UserOutlined />,
-              label: 'Sign Out',
-              onClick: () => signOut()
-            },{
-              key: '6',
+              key: '7',
               icon: collapsed ? <AiOutlineMenuUnfold  /> : <AiOutlineMenuFold  />,
               label: "Hide Sidebar",
               onClick: () => setCollapsed(!collapsed)

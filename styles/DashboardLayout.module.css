@@ -1,1 +1,23 @@
 
+.site_layout_background {
+    margin: 24px 16px;
+    padding: 24px;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.site_layout_header {
+    background-color: #fff !important;
+    border-bottom: 1px solid #f0f0f0;
+    position: sticky;
+    top: 0;
+    height: 90px !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site_layout_header h3 {
+    visibility: hidden;
+}
