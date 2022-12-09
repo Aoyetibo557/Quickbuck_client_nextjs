@@ -4,37 +4,42 @@ const baseURL = `http://localhost:9090/api`;
 export const loginHelper = async (username, password) => {
     const res = await fetch(`${baseURL}/users/login/${username}/${password}`);
     const data = await res.json();
-    console.log(">>",data);
+    // console.log(">>",data);
     return data;
 }
 
 export const registerHelper = async (username, password) => {
     const res = await fetch(`${baseURL}/register/${username}/${password}`);
     const data = await res.json();
-    console.log(">>",data);
+    // console.log(">>",data);
     return data;
 }
 
 export const getTasks = async () => {
     const res = await fetch(`${baseURL}/jobs/all`);
     const data = await res.json();
-    console.log(">>",data);
+    // console.log(">>",data);
     return data.jobs;
 }
 
-/**
- * Next Steps:
- *  - The Jobs will come from acolumn in the user routes that has an array of jobIds asscociated with the user
- *  - The jobs will be fetched from the jobs collection based on the jobIds
- * - The jobs will be filtered based on their status
- * - The jobs will be passed to the columns based on their status
- * 
- * 
- * Frontend:
- * - Create a header{
- *  avater with dropdown menu {
- *     profile
- *    settings
- *   logout}
- * }
- */
+
+export const getUserJobs = async (username) => {
+//    first get all the jobs from the jobs column in the database
+    const allJobs = await getTasks();
+    // then get the jobs from the user
+    const res = await fetch(`${baseURL}/users/findbyusername/${username}`);
+    const data = await res.json();
+    // then filter out the jobs that are in the user's jobs based on the jobId in data.alljobs, then return the filtered jobs
+    const userJobs = allJobs?.filter((job) => data.alljobs.includes(job.jobId));
+    // console.log(">>",userJobs);
+    // console.log(allJobs);
+    return userJobs;
+}
+
+// get the jobs th user created, thejobs with the author name set to the name of the user
+export const getUserCreatedJobs = async (name) => {
+    const res = await fetch(`${baseURL}/jobs/findbyauthor/${name}`);
+    const data = await res.json();
+    // console.log(">>users job",data);
+    return data;
+}

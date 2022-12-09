@@ -1,1 +1,5 @@
-font family: 
+Feature Thought:
+ - Have a review form show when the button is cliked on the frontend, and on the backend, save the new review id into the column reviews that can be used to get the reviews using the ids in the review table.
+ - For the complete it should link to the details page with a loader that starts the completion process on the frontend, while updating the job status in the table to complete{Might need to have a checker to see if the other side has clicked on the complete}
+
+  - For now have a simple starrating ability for the completed jobs 

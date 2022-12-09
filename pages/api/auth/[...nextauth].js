@@ -5,6 +5,7 @@ import { loginHelper } from '../../../utils/userauth';
 
 
 const authOptions ={
+    
     providers: [
         CredentialsProvider({
             type: 'credentials',
@@ -16,6 +17,7 @@ const authOptions ={
                 if (res.message === "Invalid credentials!") {
                     return new Error(res.message || 'Invalid credentials!');
                 }else if(res.message === "Authentication Sucessfull!") {
+                    console.log(res.user);
                     return res;
                 }else{
                     return new Error(res.message || 'something went wrong!');
@@ -27,28 +29,34 @@ const authOptions ={
     
     session: {
         jwt: true,
+        strategy: 'jwt',
     },
     callbacks: {
-        async jwt(token, user, account) {
-            if(account && user) {
-               return {
-                ...token,
-                accessToken: user.data.token,
-               }
+        async jwt({token, user, account}) {
+            if(user) {
+                token.accessToken = user.token;
+                account = user.user;
             }
+            //return token and user data
+            return {
+                ...token,
+                ...user,
+                ...account
+            }
+                
         },
-        async session({ session, token, user }) {
+        async session({ session, user, token }) {
            /**
             * @param session - The current session object
             * @param token - The JWT token
             * @param user - The user object
             * get the user data from the user object, message and token and add it to the session
             */
-            if(user) {
-                session.user = user.user;
-                session.message = user.message;
-                session.token = user.token;
-            }
+            
+            // session.user = user.user;
+            session.accessToken = token.accessToken;
+            session.user = token.user;
+            
             return session;
         }
     },

@@ -4,6 +4,7 @@ import { AiOutlineMenuFold, AiOutlineMenuUnfold } from 'react-icons/ai';
 import { BsChatDots } from 'react-icons/bs';
 import { HiOutlineSquares2X2 } from 'react-icons/hi2';
 import { signOut } from 'next-auth/react';
+import { MdOutlineTaskAlt } from 'react-icons/md';
 import Link from 'next/link'
 
 
@@ -17,7 +18,7 @@ import {
 const { Sider } = Layout;
 
 function SideBar({ trigger, collapsed, setCollapsed }) {
-  // move item with the key of 5 to the bottom of the menu
+  
   
   return (
     <Sider
@@ -56,15 +57,19 @@ function SideBar({ trigger, collapsed, setCollapsed }) {
               Link: '/dashboard/tasks',
             },{
               key: '3',
+              icon: <MdOutlineTaskAlt />,
+              label: <Link href="/dashboard/myjobs">My Jobs</Link>,
+            },{
+              key: '4',
               icon: <BsChatDots />,
               label: <Link href="/dashboard/chat">Chat</Link>,
             },
             {
-              key: '4',
+              key: '5',
               icon: <DollarOutlined />,
               label: <Link href="/dashboard/payments">Payments</Link>,
             },{
-              key: '7',
+              key: '6',
               icon: collapsed ? <AiOutlineMenuUnfold  /> : <AiOutlineMenuFold  />,
               label: "Hide Sidebar",
               onClick: () => setCollapsed(!collapsed)

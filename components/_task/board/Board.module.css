@@ -1,0 +1,18 @@
+
+.board_container::-webkit-scrollbar {
+  display: none;
+}
+
+.board_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+  align-items: center;
+  /* background-color: #fff; */
+  border-radius: 0.5rem;
+  /* box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1); */
+
+}
+
+

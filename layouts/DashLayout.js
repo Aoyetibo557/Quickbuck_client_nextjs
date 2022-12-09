@@ -7,6 +7,7 @@ import { AiOutlineUser, AiOutlineSetting, AiOutlineLogin} from 'react-icons/ai';
 import { signOut } from 'next-auth/react';
 import Link from 'next/link';
 
+
 const {Header, Content } = LayoutContainer;
 
 const items = [
@@ -29,6 +30,8 @@ const items = [
 
 export default function Layout({children}) {
   const [collapsed, setCollapsed] = React.useState(false);
+
+
   return (
     <LayoutContainer>
      
@@ -67,8 +70,8 @@ export default function Layout({children}) {
                 />
                 <DownOutlined />
               </Space>
+              
             </a>
-
           </Dropdown>
           
          
