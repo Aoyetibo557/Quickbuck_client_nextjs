@@ -3,6 +3,7 @@ import { useSession } from 'next-auth/react'
 import {Row, Col } from 'antd';
 import TaskCard from '../taskcard/TaskCard';
 import { getUserCreatedJobs } from '../../../utils/userauth';
+import NotFound from '../../_notfound/NotFound';
 
 
 
@@ -11,7 +12,7 @@ function MyjobBoard() {
   const {data: session} = useSession();
 
   useEffect(() => {
-    const timeout = getUserCreatedJobs(session.user.name).then((data) => {
+    const timeout = getUserCreatedJobs(session?.user?.name).then((data) => {
         setUserJobs(data.jobs);
     }).then(() => {
         console.clear();
@@ -23,7 +24,7 @@ function MyjobBoard() {
     return () => clearTimeout(timeout);
   }, []);
 
-  return (
+  return userJobs.length > 0 ? (
     <div>
         <Row 
             justify="start" 
@@ -40,6 +41,10 @@ function MyjobBoard() {
                 ))}
             </Col>
         </Row>
+    </div>
+  ) : (
+    <div>
+        <NotFound />
     </div>
   )
 }

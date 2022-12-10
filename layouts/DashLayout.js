@@ -1,12 +1,11 @@
 import React from 'react';
 import {Avatar, Dropdown, Image, Space, Layout as LayoutContainer } from 'antd';
 import styles from "../styles/DashboardLayout.module.css";
-import { DownOutlined } from '@ant-design/icons';
+import { DownOutlined, MenuFoldOutlined, MenuUnfoldOutlined, } from '@ant-design/icons';
 import  SideBar from '../components/_sidebar/SideBar'
 import { AiOutlineUser, AiOutlineSetting, AiOutlineLogin} from 'react-icons/ai';
 import { signOut } from 'next-auth/react';
 import Link from 'next/link';
-
 
 const {Header, Content } = LayoutContainer;
 
@@ -31,17 +30,21 @@ const items = [
 export default function Layout({children}) {
   const [collapsed, setCollapsed] = React.useState(false);
 
-
   return (
     <LayoutContainer>
      
       <SideBar trigger={null} collapsed={collapsed} setCollapsed={setCollapsed} />
       <LayoutContainer 
         className="site-layout" 
-        style={{ marginLeft: collapsed ? 80 : 200 }}
+        style={{
+          marginLeft: collapsed ? 80 : 200 }}
       >
         <Header className={styles.site_layout_header}>
-          <h3>Hello</h3>
+          {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+            className: 'trigger',
+            onClick: () => setCollapsed(!collapsed),
+          })}
+
 
           <Dropdown 
               menu={{items}}

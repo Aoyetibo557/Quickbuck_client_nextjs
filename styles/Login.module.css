@@ -1,38 +1,35 @@
 .login_container{
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: 1fr 60%;
+    grid-template-columns: 1fr 55%;
     margin: auto 10%;
-    height: 90vh;
+    height: 70vh;
     margin-bottom: 20px;
 }
 
 .login_banner {
-    background-color: rgb(0, 0, 0);
+    background-color: rgba(99, 63, 63, 0.05);
     display: flex;
     flex-direction: column;
     padding: 20px;
-    border-radius: 10px;
-    width: 450px;
-    color: #fff;
+    width: 430px;
+    color: rgb(19, 4, 4);
 }
 
 .login_banner_h3 {
     font-size: 1.2rem;
-    font-weight: 300;
-    opacity: 0.8;
+    font-weight: 400;
     font-family: sans-serif;
 }
 
 .login_banner_h4 {
     font-size: 2.5rem;
-    font-weight: 6600;
+    font-weight: 700;
     font-family: sans-serif;
 }
 
 .login_banner_p {
-    width: 330px;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 400;
     font-family: sans-serif;
     opacity: 0.8;
@@ -49,12 +46,11 @@
     display: flex;
     flex-direction: column;
     margin-top: 20px;
-    width: 80%;
+    width: 60%;
 }
 
 .login_form_forminput {
     padding: 10px;
-    border-radius: 5px;
     border: 1px solid rgb(151, 149, 149);
     margin-bottom: 10px;
     outline: none;
@@ -82,22 +78,32 @@
     width: 50%;
     height: 40px;
     padding: 10px;
-    border-radius: 5px;
     margin-bottom: 10px;
     outline: none;
     border: none;
     font-size: 15px;
     font-family: sans-serif;
-    background-color: rgb(0, 0, 0);
+    background-color: rgba(71, 9, 9, 0.694);
     color: #fff;
     cursor: pointer;
+    position: relative;
 }
 
-.login_form_formbtn:hover {
-    background-color: #fff;
-    color: rgb(0, 0, 0);
-    transition: all 0.2s ease-in-out;
-    border: 0.90px solid rgba(0, 0, 0, 0.328);
+.login_form_formbtn::before {
+    background: rgba(27, 24, 38, 0.9);
+    content: "";
+    inset: 0;
+    position: absolute;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease-in-out;
+    z-index: -1;
+}
+
+.login_form_formbtn:hover::before {
+  transform: scaleX(1);
+  /* transform: scale(1.05); */
+  transform-origin: left;
 }
 
 .login_form_form_radio_h4 {

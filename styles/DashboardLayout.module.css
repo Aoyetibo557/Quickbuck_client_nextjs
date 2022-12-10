@@ -16,8 +16,5 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-}
-
-.site_layout_header h3 {
-    visibility: hidden;
+    z-index: 1;
 }

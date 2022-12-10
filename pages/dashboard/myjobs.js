@@ -22,8 +22,23 @@ export default function MyJobs() {
     }, [router, status]);
 
     if(status === 'loading') {
-        return <div>
-            <h1>Loading...</h1>
+        return <div 
+            style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '40vh',
+
+            }}
+        >
+            <h4
+                style={{
+                    color: '#1890ff',
+                    fontSize: '1.5rem',
+                    fontWeight: 'bold',
+                    
+                }}
+            >Loading...</h4>
         </div>;
     }
 

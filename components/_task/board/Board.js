@@ -5,6 +5,7 @@ import Completed from './columns/Completed'
 import styles from './Board.module.css'
 import { getUserJobs } from '../../../utils/userauth'
 import { useSession } from 'next-auth/react'
+import NotFound from '../../_notfound/NotFound'
 
 function Board() {
   // the tasks will be passed in as props, and the task will be passed to each colum based on thier status
@@ -12,7 +13,7 @@ function Board() {
   const {data: session} = useSession();
 
   useEffect(() => {
-   getUserJobs(session.user.username).then((data) => {
+   getUserJobs(session?.user?.username).then((data) => {
       setTasks(data)
     })
     .then(() => {
@@ -31,11 +32,15 @@ function Board() {
   }
 
 
-  return (
+  return tasks.length > 0 ? (
     <div className={styles.board_container}>
       <NewRequest newrequeststasks={filterTasks("active")} />
       <Inprogress inprogresstasks={filterTasks("in progress")} />
       <Completed completedtasks={filterTasks("completed")} />
+    </div>
+  ) : (
+    <div>
+      <NotFound />
     </div>
   )
 }

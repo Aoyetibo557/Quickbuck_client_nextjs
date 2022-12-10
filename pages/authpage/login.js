@@ -137,7 +137,7 @@ function Login() {
             </div>
 
             <div className={styles.login_form_formdiv}>
-              <p className={styles.login_form_formp}>{`Don't have an account?`} <Link href="/">Register</Link></p>
+              <p className={styles.login_form_formp}>{`Don't have an account?`} <Link href="/authpage/signup">Register</Link></p>
             </div>
           </form>
 

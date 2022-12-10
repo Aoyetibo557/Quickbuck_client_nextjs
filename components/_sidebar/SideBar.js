@@ -1,10 +1,9 @@
 import React from 'react'
-import { Layout, Menu, Popconfirm, Button } from 'antd';
+import { Layout, Menu, Divider } from 'antd';
 import { AiOutlineMenuFold, AiOutlineMenuUnfold } from 'react-icons/ai';
 import { BsChatDots } from 'react-icons/bs';
-import { HiOutlineSquares2X2 } from 'react-icons/hi2';
-import { signOut } from 'next-auth/react';
 import { MdOutlineTaskAlt } from 'react-icons/md';
+import { FiHome } from 'react-icons/fi';
 import Link from 'next/link'
 
 
@@ -22,11 +21,11 @@ function SideBar({ trigger, collapsed, setCollapsed }) {
   
   return (
     <Sider
-     
       trigger={trigger} 
       collapsible 
       collapsed={collapsed}
       style={{
+        width: 300,
         overflow: 'auto',
         height: '100vh',
         position: 'fixed',
@@ -37,18 +36,40 @@ function SideBar({ trigger, collapsed, setCollapsed }) {
         // backgroundColor: "#fff",
       }}
     >
-        <div className="logo">
-          <h3>QuickBuck Freelancer</h3>
+        <div style={{
+          display: "flex",
+          flexWrap: "wrap",
+          alignContent: "center",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}>
+          <h3
+            style={{
+              color: "#fff",
+              marginLeft: collapsed ?"0" : "15px",
+              textAlign: "center",
+              fontSize: collapsed ? "13px" : "1.7rem",
+              fontWeight: "500",
+            }}
+          >QuickBuck</h3>
+         
         </div>
+        <Divider style={{ 
+          backgroundColor: "#ccc",
+          margin: "10px 0" }} />
         <Menu
           theme="dark"
           mode="inline"
-          // defaultSelectedKeys={['1']}
+          style={{
+            height: "100%",
+            marginTop:30
+          }}
+          defaultSelectedKeys={['1']}
           items={[
             {
               key: '1',
-              icon: <HiOutlineSquares2X2 />,
-              label: <Link href="/dashboard/overview">Overview</Link>,
+              icon: <FiHome />,
+              label: <Link href="/dashboard/home">Home</Link>,
             },
             {
               key: '2',
@@ -68,11 +89,6 @@ function SideBar({ trigger, collapsed, setCollapsed }) {
               key: '5',
               icon: <DollarOutlined />,
               label: <Link href="/dashboard/payments">Payments</Link>,
-            },{
-              key: '6',
-              icon: collapsed ? <AiOutlineMenuUnfold  /> : <AiOutlineMenuFold  />,
-              label: "Hide Sidebar",
-              onClick: () => setCollapsed(!collapsed)
             },
             
           ]}

@@ -1,5 +1,6 @@
 // const baseURL = `${process.env.BASE_URL}/users/login`;
 const baseURL = `http://localhost:9090/api`; 
+import QueryString from 'qs';
 
 export const loginHelper = async (username, password) => {
     const res = await fetch(`${baseURL}/users/login/${username}/${password}`);
@@ -8,8 +9,13 @@ export const loginHelper = async (username, password) => {
     return data;
 }
 
-export const registerHelper = async (username, password) => {
-    const res = await fetch(`${baseURL}/register/${username}/${password}`);
+export const registerHelper = async (params) => {
+    const options = {
+        method: 'POST',
+        headers: {'Content-Type':'application/x-www-form-urlencoded'}, // this line is important, if this content-type is not set it wont work
+        body: QueryString.stringify(params)
+    }
+    const res = await fetch(`${baseURL}/users/signup`, options);
     const data = await res.json();
     // console.log(">>",data);
     return data;

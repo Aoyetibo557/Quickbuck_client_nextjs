@@ -18,8 +18,22 @@ export default function Tasks() {
     }, [router, status]);
 
     if (status === 'loading') {
-        return <div>
-            <h1>Loading...</h1>
+        return <div
+            style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '40vh',
+
+            }}
+        >
+            <h3
+                style={{
+                    color: '#1890ff',
+                    fontSize: '1.3rem',
+                    fontWeight: 'bold',
+                }}
+            >Loading...</h3>
         </div>;
     }
 

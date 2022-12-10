@@ -22,7 +22,6 @@ const authOptions ={
                 }else{
                     return new Error(res.message || 'something went wrong!');
                 }
-                               
             }
         })
     ],
